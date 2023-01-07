@@ -1,0 +1,64 @@
+.Header{
+  width: auto;
+  border-bottom: 1px solid #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Header button:hover{
+  color: var(--color-tertiary)
+}
+
+.Header button{
+  padding: 10px;
+  background: inherit;
+  border: 0px;
+  transition: all .2s ease-in-out;
+}
+.logoContainer{
+  display: flex;
+  align-items: center;
+}
+.Header  svg{
+  font-size: 1.5em;
+}
+
+.Search_input_container{
+  overflow: hidden;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+.Search_input_container input {
+  width: 400px;
+  padding: 10px 20px;
+  border: 0px;
+  outline: 0px;
+  color: var(--text-color);
+}
+.Search_input_container button{
+  border-left: 1px solid #333;
+}
+/* Side Items */
+.header_right_Items{
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+.user_Avi_container{
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  border-left: 1px solid #eee;
+  /* margin-right: 20px; */
+}
+.Avi{
+  height: 30px;
+  width: 30px;
+  border: 1px solid #eee;
+  margin-left: 10px;
+  border-radius: 20px;
+  background: #eee;
+}

@@ -1,0 +1,82 @@
+.login_container{
+  height:100vh;
+  width: 100vw;
+  background-color: var(--color-primary);
+  position: relative;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  color: #fff;
+}
+.login_container h1{
+  color: white;
+}
+.header_image{
+  height: auto;
+  width: 50%;
+  background-image: url("../../public/Landing_Photo3.jpg");
+}
+.modal{
+  min-height: 70%;
+  width: 70%;
+  margin: auto;
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  background-color: var(--color-neutral);
+  display: flex;
+  overflow: hidden;
+}
+
+.form_container{
+  height: 100%;
+  width: 50%;
+  padding: 20px;
+}
+.form_container form{
+  display: flex;
+  width: 75%;;
+  padding: 20px;
+  margin: auto;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.form_container input {
+  padding: 15px 0px;
+  outline: 0px;
+  border: 0px;
+  margin: 20px 0px;
+  background-color: inherit;
+  border-bottom: 1px solid #816797;
+  color: #816797;
+}
+.form_container form button {
+  padding: 10px;
+  margin: 20px 0px;
+  border: 0px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #816797;
+  color: white;
+}
+.seperator_container{
+  display: flex;
+  align-items: center;
+}
+.seperator_container hr {
+  width: 20%;
+  height: 0.5px;
+}
+.Other_auth_options{
+  align-items: center;
+  margin: 20px 0px;
+}
+.Other_auth_options button{
+  width: 75%;
+  background-color: white;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  align-content: center;
+}
