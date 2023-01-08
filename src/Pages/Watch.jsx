@@ -7,8 +7,8 @@ function Watch() {
 
   const videos = [
     {
-      "image": "6lack.jpg",
-      "url": ""
+      "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/Kehlani44.jpg",
+      "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/8a94e2f767e42cfe9cb4355b31ffbf85f3cd6eb9.mp4"
     },
     {
       "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/Capture-25.jpg",
@@ -23,8 +23,8 @@ function Watch() {
       "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/e9c4c8e41e6cfcb45bddcddac72042ef86a1d148.mp4"
     },
     {
-       "image": "maxresdefault.jpg",
-       "url": ""
+       "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/MV5BMGNjNTlmYmUtNGM2Zi00MmRlLWJlZGMtNzM2NjRiM2RjZmE5XkEyXkFqcGdeQXVyMTk2NTA3MjU.jpg",
+       "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/d05a0180d3cdf07831a85443a9bff244bb5244fa.mp4"
      }
   ]
 

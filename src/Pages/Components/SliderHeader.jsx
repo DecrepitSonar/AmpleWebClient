@@ -54,6 +54,7 @@ const prev = () => {
 useEffect(() => {
   galleryContainer = document.querySelector('.video_container').childNodes
   galleryItems = document.querySelectorAll(".video_item")
+  galleryItems[2].play()
 }, [])
 
     return(
@@ -61,7 +62,7 @@ useEffect(() => {
         <button onClick={() => prev()}><IoIosArrowDropleftCircle /></button>
         <div className="video_container">
         { videos.map( (item, i) => { return(
-          <video controls key={i} className={`video_item video_item_${i}`} width="auto"  poster={process.env.PUBLIC_URL,`${item.image}`} >
+          <video onEnded={() => next()} muted="true" key={i} className={`video_item video_item_${i}`} width="auto"  poster={process.env.PUBLIC_URL,`${item.image}`} >
             <source src={item.url} type="video/mp4" />
           </video>
         ) }) }
