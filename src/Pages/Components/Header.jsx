@@ -16,9 +16,9 @@ function Header(){
   }
 
   function returnFocus(){
-    console.log( params)
+    // console.log( params)
     if(params.length < 1){
-      console.log( true)
+      // console.log( true)
       navigate('/')
       return
     }
@@ -36,11 +36,12 @@ function Header(){
 }, [searchQuery])
 
   return(
-    <div className="Header"v>
-    <div className="logoContainer">
-    <button><IoIosMenu/></button>
-      <img src={`${process.env.PUBLIC_URL}/Logo.png`} height="30px" width="auto"/>
-    </div>
+    <div className="Header">
+
+      <div className="logoContainer">
+      <button><IoIosMenu/></button>
+        <img src={`${process.env.PUBLIC_URL}/Logo.png`} height="30px" width="auto"/>
+      </div>
 
       <div className="Search_input_container">
         <input onBlur={() => returnFocus()} onFocus={()=> search()} onChange={(e) => setSearchQuery({"q":e.target.value})} type="text" placeholder="Search"/>

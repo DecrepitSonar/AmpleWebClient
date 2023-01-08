@@ -5,7 +5,30 @@ import VideoComponent from "./Components/VideoComponent"
 
 function Watch() {
 
-let videos = [
+  const videos = [
+    {
+      "image": "6lack.jpg",
+      "url": ""
+    },
+    {
+      "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/Capture-25.jpg",
+      "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/f8856321095006adba848aa554353a5c4911b933.mp4"
+    },
+    {
+      "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/sir-devils-video.jpg",
+      "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/b95f9e9ca54c89b18a4f82d90353df4a3bc04af1.mp4"
+    },
+    {
+      "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/Lucky-Daye-Real-Games-768x443.jpg",
+      "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/e9c4c8e41e6cfcb45bddcddac72042ef86a1d148.mp4"
+    },
+    {
+       "image": "maxresdefault.jpg",
+       "url": ""
+     }
+  ]
+
+let sectionVideos = [
   {
     "id": 1,
     "name": "",
@@ -442,7 +465,7 @@ let videos = [
 
   return(
     <div className="Container">
-      <SliderHeader/>
+      <SliderHeader videos={videos}/>
       <div className="body_container">
         <div className="section">
           <div className="section_header">
@@ -450,7 +473,7 @@ let videos = [
             <IoIosArrowForward/>
           </div>
           <div className="video_component_items">
-            { videos.map( (item, i) => { return <VideoComponent key={i} item={item}/> }) }
+            { sectionVideos.map( (item, i) => { return <VideoComponent key={i} item={item}/> }) }
           </div>{/*video_component_items*/}
         </div>{/* End of section*/}
       </div>

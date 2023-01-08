@@ -12,6 +12,7 @@ import Library from "./Pages/Library"
 import Search from "./Pages/Search"
 import Stats from "./Pages/Stats"
 import History from "./Pages/History"
+import WatchVideo from "./Pages/WatchVideo"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/stats" element={<Stats/>}/>
           <Route path="/search" element={<Search/>}/>
           <Route path="/stream" element={<Stream/>}/>
+          <Route path="/video/:id" element={<WatchVideo/>}/>
         </Route>
       </Routes>
     </div>

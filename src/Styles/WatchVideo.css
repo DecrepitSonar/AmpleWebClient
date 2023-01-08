@@ -1,0 +1,52 @@
+.videoHeader{
+  height: 75vh;
+  width: auto;
+  /* border: 1px solid red; */
+  background-color: #000;
+}
+.videoDescription{
+  height: auto;
+  width: auto;
+  border-bottom: 1px solid #333;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.videoDescription p{
+  font-size: 12px;
+  max-width: 75%;
+}
+.videoDescriptionHeader{
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.videoAuthorContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.AuthorAvi{
+  height: 30px;
+  width: 30px;
+  background-color: #333;
+  margin-right: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.videoButtonContainer{
+  width: auto;
+  border-bottom: 1px solid #333;
+  margin: 20px 0;
+}
+.videoButtonContainer button{
+  border: 0px;
+  padding: 10px;
+  margin: auto;
+  font-size: 17px;
+}

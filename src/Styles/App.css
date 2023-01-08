@@ -2,6 +2,7 @@
 @import "./Wrapper";
 @import  "./Live";
 @import  "./Listen";
+@import "./WatchVideo";
 
 @import "./Components/Aside";
 @import "./Components/Header";
