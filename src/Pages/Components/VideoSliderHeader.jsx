@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-
+import { Link } from "react-router-dom"
 import { IoIosArrowDropleftCircle,
             IoIosArrowDroprightCircle } from "react-icons/io"
 
-function SliderHeader(props){
+function VideoSliderHeader(props){
 
 const videos = props.videos
 const [ position, setPosition ] = useState(0)
@@ -29,7 +29,6 @@ const next = () => {
   galleryItems[1].pause()
   galleryItems[2].play()
 }
-
 const prev = () => {
 
     galleryItems = Array.from(galleryItems)
@@ -41,7 +40,6 @@ const prev = () => {
     });
 
     galleryItems.forEach((el, i) => {
-      console.log( "adding adding class" )
       el.classList.add(`video_item_${i}`)
     });
 
@@ -49,7 +47,6 @@ const prev = () => {
     galleryItems[2].play()
 
 }
-
 
 useEffect(() => {
   galleryContainer = document.querySelector('.video_container').childNodes
@@ -62,13 +59,13 @@ useEffect(() => {
         <button onClick={() => prev()}><IoIosArrowDropleftCircle /></button>
         <div className="video_container">
         { videos.map( (item, i) => { return(
-          <video onEnded={() => next()} muted="true" key={i} className={`video_item video_item_${i}`} width="auto"  poster={process.env.PUBLIC_URL,`${item.image}`} >
-            <source src={item.url} type="video/mp4" />
-          </video>
+            <video key={i} onEnded={() => next()} muted={true} className={`video_item video_item_${i}`} width="auto"  poster={process.env.PUBLIC_URL,`${item.image}`} >
+              <source src={item.url} type="video/mp4" />
+            </video>
         ) }) }
         </div>
         <button onClick={() => next() }>< IoIosArrowDroprightCircle/></button>
       </div>
     )
 }
-export default SliderHeader
+export default VideoSliderHeader

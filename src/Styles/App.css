@@ -3,6 +3,7 @@
 @import  "./Live";
 @import  "./Listen";
 @import "./WatchVideo";
+@import "./StreamSettings";
 
 @import "./Components/Aside";
 @import "./Components/Header";
@@ -13,7 +14,7 @@
 :root{
   --color-neutral: #1F1F1F;
   --color-primary: #1B2430;
-  --color-seconday: #816797;
+  --color-secondary: #816797;
   --color-tertiary: #D6D5A8;
   --text-color: #f3f3f3;
 }
@@ -36,7 +37,6 @@ a{
   text-decoration: none;
 }
 .App {
-  text-align: center;
   height: 100vh;
   width: 100vw;
 }

@@ -6,7 +6,7 @@ import { IoIosArrowDropleftCircle,
              IoIosArrowForward } from "react-icons/io"
 import { IoEllipsisHorizontal } from "react-icons/io5"
 
-import SliderHeader from "./Components/SliderHeader"
+import VideoSliderHeader from "./Components/VideoSliderHeader"
 import VideoComponent from "./Components/VideoComponent"
 import MobileVideoComponent from "./Components/MobileVideoComponent"
 // import MobileModel from "./Components/MobileModel"
@@ -68,6 +68,7 @@ function Live() {
       "imageURL": ""
     }
   ]
+
   const liveVideos = [
     {
       "id": 1,
@@ -148,8 +149,9 @@ function Live() {
 
   return(
     <div className="Container">
-      <SliderHeader videos={videos}/>
+      <VideoSliderHeader videos={videos}/>
       <div className="body_container">
+
         <div className=" section mobile">
           <div className="section_header">
             <span className="section_title">Title</span>
@@ -166,7 +168,7 @@ function Live() {
             <IoIosArrowForward/>
           </div>
           <div className="video_component_items">
-            { liveVideos.map( (item, i) => { return <Link key={i} to={`/video/:${item.id}`} ><VideoComponent item={item}/></Link> }) }
+            { liveVideos.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><VideoComponent item={item}/></Link> }) }
           </div>{/*video_component_items*/}
         </div>{/* End of section*/}
 

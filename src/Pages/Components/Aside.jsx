@@ -1,18 +1,19 @@
 import React,{useEffect, useState} from "react"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams, useLocation } from "react-router-dom"
 
 import { AiFillHome,
-            AiOutlineEllipsis,
-            AiOutlinePoweroff } from "react-icons/ai"
+             AiOutlineEllipsis,
+             AiOutlinePoweroff } from "react-icons/ai"
 import { MdVideoLibrary,
-            MdQueryStats,
-            MdOutlineAddCircleOutline } from "react-icons/md"
+             MdQueryStats,
+             MdOutlineAddCircleOutline } from "react-icons/md"
 import { BsMusicNoteList,
-            BsHeartFill,
-            BsListStars } from "react-icons/bs"
+             BsHeartFill,
+             BsListStars } from "react-icons/bs"
 import { IoIosCog } from "react-icons/io"
 
 function ChannelStrip(){
+
   return(
     <div className="ChannelStrip">
       <div className="avi_container">
@@ -23,15 +24,22 @@ function ChannelStrip(){
     </div>
   )
 }
-function Aside(){
 
-  const [activeLink, setActiveLink] = useState("/")
+
+function Aside(props){
+
+  const [activeLink, setActiveLink] = useState("")
+
+  let params = []
+  let location = useLocation()
 
   function handleLink(link) {
-
-    console.log( link)
     setActiveLink(link)
   }
+
+  useEffect( () => {
+       setActiveLink( location.pathname)
+  },[activeLink])
 
   return(
     <div className="Aside">

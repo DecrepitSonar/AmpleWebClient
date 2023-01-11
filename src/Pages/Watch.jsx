@@ -1,6 +1,7 @@
 import React from "react"
-import {IoIosArrowForward} from "react-icons/io"
-import SliderHeader from "./Components/SliderHeader"
+import { Link } from "react-router-dom"
+import { IoIosArrowForward } from "react-icons/io"
+import VideoSliderHeader from "./Components/VideoSliderHeader"
 import VideoComponent from "./Components/VideoComponent"
 
 function Watch() {
@@ -28,7 +29,7 @@ function Watch() {
      }
   ]
 
-let sectionVideos = [
+  let sectionVideos = [
   {
     "id": 1,
     "name": "",
@@ -465,7 +466,7 @@ let sectionVideos = [
 
   return(
     <div className="Container">
-      <SliderHeader videos={videos}/>
+      <VideoSliderHeader videos={videos}/>
       <div className="body_container">
         <div className="section">
           <div className="section_header">
@@ -473,11 +474,11 @@ let sectionVideos = [
             <IoIosArrowForward/>
           </div>
           <div className="video_component_items">
-            { sectionVideos.map( (item, i) => { return <VideoComponent key={i} item={item}/> }) }
+            { sectionVideos.map( (item, i) => { return <Link key={i} to={`/watch/:${item.id}`} ><VideoComponent item={item}/> </Link>}) }
           </div>{/*video_component_items*/}
         </div>{/* End of section*/}
       </div>
-      </div>
+    </div>
   )
 }
 

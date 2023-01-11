@@ -1,7 +1,7 @@
 .header{
   height: auto;
   width: auto;
-  background-color: var(--color-neutral);
+  background-color: #000;
   padding: 0px;
   display: flex;
   flex-direction: row;
@@ -24,10 +24,8 @@
   height: 200px;
   position: absolute;
   transition: all .3s ease-in-out;
-  background-color: #333;
   z-index: 0px;
   background-size: contain;
-  background-color: #ddd;
   border-radius: 10px
 }
 .video_item_0{
