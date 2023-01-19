@@ -4,6 +4,7 @@
 @import  "./Listen";
 @import "./WatchVideo";
 @import "./StreamSettings";
+@import "./TrackDetail";
 
 @import "./Components/Aside";
 @import "./Components/Header";

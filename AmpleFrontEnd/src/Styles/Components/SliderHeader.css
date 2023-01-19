@@ -22,7 +22,7 @@
 }
 .slider_item{
   height: 400px;
-  width: 25vw;
+  width: auto;
   /* border: 1px solid red; */
   margin: 0px 20px;
   border-radius: 20px;

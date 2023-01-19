@@ -1,19 +1,21 @@
 .track_container{
   height: auto;
   width: auto;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 20px;
 }
 .track_item{
   height: auto;
+  margin-bottom: 20px;
 }
 .track_item_image{
   height: 200px;
   width: 200px;
   border-radius: 10px;
-  background-color: #eee;
+  background-color: #aaa;
   border-radius: 10px;
   box-shadow: 0px 0px 10px #333;
 }
@@ -30,5 +32,5 @@
   font-weight: bold;
 }
 .track_item_description span:nth-child(2){
-  font-size: 15px;
+  font-size: 12px;
 }

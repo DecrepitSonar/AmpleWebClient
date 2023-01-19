@@ -7,12 +7,14 @@ import Stream from "./Pages/Stream"
 import Live from "./Pages/Live"
 import Watch from "./Pages/Watch"
 import Listen from "./Pages/Listen"
+import TrackDetail from './Pages/TrackDetail'
 import Publish from "./Pages/Publish"
 import Library from "./Pages/Library"
 import Search from "./Pages/Search"
 import Stats from "./Pages/Stats"
 import History from "./Pages/History"
 import WatchVideo from "./Pages/WatchVideo"
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route index element={<Live/>}/>
           <Route path="/watch" element={<Watch/>}/>
           <Route path="/listen" element={<Listen/>}/>
+          <Route path="/listen/:id" element={<TrackDetail/>}/>
           <Route path="/publish" element={<Publish/>}/>
           <Route path="/saved" element={<Library/>}/>
           <Route path="/history" element={<History/>}/>
