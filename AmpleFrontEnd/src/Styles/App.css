@@ -3,7 +3,7 @@
 @import  "./Live";
 @import  "./Listen";
 @import "./WatchVideo";
-@import "./StreamSettings";
+@import "./Stream";
 @import "./TrackDetail";
 
 @import "./Components/Aside";
@@ -11,6 +11,7 @@
 @import "./Components/SliderHeader";
 @import "./Components/Video_component";
 @import "./Components/MobileVideoComponent";
+@import "./Components/AVFooter";
 
 :root{
   --color-neutral: #1F1F1F;
@@ -21,7 +22,7 @@
 }
 
 html{
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #1F1F1F;
   color: var(--text-color);
   border: #aaa;

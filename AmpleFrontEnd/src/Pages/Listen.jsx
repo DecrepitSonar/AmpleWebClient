@@ -92,7 +92,7 @@ function Listen() {
 
       <div className="section slider_container">
         <div className="slider_items">
-          { albums.map( (item, i) => { return <Link to={`${i}`}> <img key={i} className="slider_item" src={item.image} /></Link>}) }
+          { albums.map( (item, i) => { return <Link to={`${i}`} key={i} > <img className="slider_item" src={item.image} /></Link>}) }
         </div>
       </div>{/*Section end*/}
 

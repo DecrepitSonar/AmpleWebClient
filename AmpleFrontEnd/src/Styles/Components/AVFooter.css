@@ -1,0 +1,70 @@
+.AVContainer{
+    z-index: 10;
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+.AVContainer button{
+    border: 0;
+}
+.mediaControls{
+    display: flex;
+    align-items: center;
+}
+.mediaButtons button{
+    font-size: 1.3em;
+}
+.trackInfo{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    margin: 10px;
+}
+.trackInfo span:first{
+    font-weight: bold;
+}
+.trackArtwork{
+    height: 60px;
+    width: 60px;
+    /* border: 1px solid red; */
+    border-radius: 5px;
+}
+.mediaButtons{
+    /* border: 1px solid red; */
+}
+.progressBarContainer{
+    width: 65%;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+.progressBar{
+    height: 10px;
+    width: 100%;
+    border: 1px solid red;
+    margin: 0 10px;
+    border-radius: 20px;
+}
+.progressBar-slider{
+    height: 100%;
+    width: 50%;
+    background-color: red;
+}
+.volumeControls{
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+}
+.volumeHighlight{
+    height: 10px;
+    width: 100px;
+    border: 1px solid red;
+    margin-left: 10px;
+}

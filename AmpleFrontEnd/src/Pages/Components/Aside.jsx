@@ -53,10 +53,8 @@ function Aside(props){
       <span className="aside_section_title">Library</span>
       <div className="Library_content">
         <ul>
-          <Link to="/publish"><li onClick={ () => setActiveLink("/publish")} className={activeLink == "/publish" ? "active_list_item": ""}><MdOutlineAddCircleOutline/>Publish</li></Link>
           <Link to="/saved"><li onClick={ () => setActiveLink("/saved")} className={activeLink == "/saved" ? "active_list_item": ""}><BsHeartFill/>Saved</li></Link>
           <Link to="/history"><li onClick={ () => setActiveLink("/history")} className={activeLink == "/history" ? "active_list_item": ""}><BsListStars/>History</li></Link>
-          <Link to="/stats"><li onClick={ () => setActiveLink("/stats")} className={activeLink == "/stats" ? "active_list_item": ""}><MdQueryStats/>Stats for you</li></Link>
         </ul>
       </div>
       <span className="aside_section_title">Channels</span>

@@ -158,7 +158,7 @@ function Live() {
             <IoIosArrowForward/>
           </div>
           <div className="mobile_items">
-          { mobileItems.map( (item, i) => { return <Link key={i} to={`/b-roll/:${item.id}`} ><MobileVideoComponent item={item}/></Link> })}
+          { mobileItems.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><MobileVideoComponent item={item}/></Link> })}
           </div>
         </div>{ /* End of mobile section*/}
 

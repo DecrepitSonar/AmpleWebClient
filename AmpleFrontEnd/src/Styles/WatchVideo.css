@@ -1,8 +1,16 @@
 .videoHeader{
-  height: 75vh;
+  height: auto;
   width: auto;
-  /* border: 1px solid red; */
   background-color: #000;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+.videoHeader video{
+  margin: auto;
+  height: auto;
+  width: 75vw;
+  position: relative;
 }
 .videoDescription{
   height: auto;
@@ -22,11 +30,13 @@
   width: auto;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 .videoAuthorContainer{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 
 .AuthorAvi{

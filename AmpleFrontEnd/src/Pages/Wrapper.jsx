@@ -2,6 +2,7 @@ import React, {useEffect} from "react"
 import {Outlet} from 'react-router-dom'
 import Header from "./Components/Header"
 import Aside from "./Components/Aside"
+import AVFooter from "./Components/AVFooter"
 
 function Wrapper(){
 
@@ -12,6 +13,7 @@ function Wrapper(){
         <Aside/>
         <Outlet/>
       </div>
+      <AVFooter/>
     </div>
   )
 }

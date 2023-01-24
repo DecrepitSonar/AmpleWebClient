@@ -4,18 +4,22 @@ import { AiOutlineLike,
              AiOutlineDislike,
              AiFillHeart  } from "react-icons/ai"
 
-function WatchVideo() {
+function WatchVideo(props) {
 
   return(
     <div className="Container">
-      <div className="videoHeader"></div>
+      <div className="videoHeader">
+        <video autoPlay controls >
+          <source src="https://prophile.nyc3.cdn.digitaloceanspaces.com/Videos/8a94e2f767e42cfe9cb4355b31ffbf85f3cd6eb9.mp4" type="video/mp4"/>
+        </video>
+      </div>
       <div className="videoDescription">
         <div className="videoDescriptionHeader">
-          <div className="videoAuthorContainer">
+          <div className="videoAuthorContainer"> 
             <div className="AuthorAvi"></div>
             <label>Username</label>
-
           </div>
+          <label htmlFor="">Video Title</label>
         </div>
         <div className="videoButtonContainer">
           <button><AiOutlineLike/> </button>
