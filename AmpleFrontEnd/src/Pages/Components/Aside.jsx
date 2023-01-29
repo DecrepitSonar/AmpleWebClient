@@ -57,7 +57,13 @@ function Aside(props){
           <Link to="/history"><li onClick={ () => setActiveLink("/history")} className={activeLink == "/history" ? "active_list_item": ""}><BsListStars/>History</li></Link>
         </ul>
       </div>
-      <span className="aside_section_title">Channels</span>
+      
+    </div>
+  )
+}
+export default Aside
+
+{/* <span className="aside_section_title">Channels</span>
       <div className="channels_container">
           <ChannelStrip/>
           <ChannelStrip/>
@@ -68,12 +74,9 @@ function Aside(props){
           <ChannelStrip/>
           <ChannelStrip/>
           <ChannelStrip/>
-      </div>
-      <div className="aside_footer">
-      <button><AiOutlinePoweroff/></button>
-      <button><IoIosCog/></button>
-      </div>
-    </div>
-  )
-}
-export default Aside
+      </div> */}
+
+      // <div className="aside_footer">
+      // <button><AiOutlinePoweroff/></button>
+      // <button><IoIosCog/></button>
+      // </div>

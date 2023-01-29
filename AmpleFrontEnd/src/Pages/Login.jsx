@@ -2,6 +2,7 @@ import React from "react"
 import { FaApple,
             FaGooglePlusG,
             FaFacebookF } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 const Login = () => {
   return (
@@ -12,7 +13,7 @@ const Login = () => {
           <form>
             <input type="email" placeholder="Email"/>
             <input type="password" placeholder="Password "/>
-            <span>Forgot password?</span>
+            <span>Forgot password? <Link to="reset">Reset</Link></span>
             <button>Sign in </button>
           </form>
 
@@ -21,12 +22,12 @@ const Login = () => {
           </div>
 
           <div className="Other_auth_options">
-          <button> <FaApple/> Login With Apple </button>
-          <button> <FaGooglePlusG/> Login With Google </button>
-          <button> <FaFacebookF/> Login With Apple </button>
+            <div className="register_button_container"><div className="register_button"><FaApple/><button> Login With Apple </button></div></div>
+            <div className="register_button_container"><div className="register_button"><FaGooglePlusG/><button>Login With Google </button></div></div>
+            <Link className="register_button_container register" to="/signup"><div className="register_button"><button>Signup </button></div></Link>
           </div>
         </div>
-        <div className="header_image"></div>
+        
       </div>
     </div>
   )

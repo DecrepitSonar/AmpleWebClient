@@ -1,6 +1,7 @@
 .AVContainer{
+    /* border-top: 1px solid #333;; */
     z-index: 10;
-    background-color: black;
+    background-color: #000;
     padding: 10px 20px;
     position: fixed;
     justify-content: space-between;
@@ -9,6 +10,7 @@
     bottom: 0px;
     right: 0px;
     left: 0px;
+    position: relative;
 }
 .AVContainer button{
     border: 0;
@@ -26,12 +28,13 @@
     /* border: 1px solid red; */
     margin: 10px;
 }
-.trackInfo span:first{
+.trackInfo span:nth-child(2){
     font-weight: bold;
+    font-size: 0.7em;
 }
 .trackArtwork{
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     /* border: 1px solid red; */
     border-radius: 5px;
 }
@@ -46,16 +49,16 @@
     margin: 0 10px;
 }
 .progressBar{
-    height: 10px;
+    height: 5px;
     width: 100%;
-    border: 1px solid red;
+    border: 1px solid var(--color-tertiary);
     margin: 0 10px;
     border-radius: 20px;
 }
 .progressBar-slider{
     height: 100%;
     width: 50%;
-    background-color: red;
+    background-color: var(--color-tertiary);
 }
 .volumeControls{
     display: flex;
@@ -63,8 +66,40 @@
     padding: 20px 10px;
 }
 .volumeHighlight{
-    height: 10px;
+    height: 5px;
     width: 100px;
-    border: 1px solid red;
+    border: 1px solid var(--color-tertiary);
     margin-left: 10px;
+    border-radius: 20px;
+}
+.volume_slider{
+    height: inherit;
+    width: 50%;
+    background-color: var(--color-tertiary);
+}
+
+.MiniVideoContainer{
+    height: 200px;
+    width: 350px; 
+    border: 0.5px solid var(--color-tertiary); 
+    position: absolute;
+    right: 20px; 
+    bottom: 100px;
+    box-shadow: 0px 0px 10px #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.MiniVideoContainer video{
+    height: inherit;
+    width: inherit;
+}
+
+.MiniOverlay{
+    position: absolute;
+    background-color: rgba(0,0,0,.5);
+    left: 0px;
+    right: 0px;
+    bottom: 0px; 
+    top: 0px;
 }

@@ -10,15 +10,16 @@
 }
 .login_container h1{
   color: white;
+  margin: auto;
+  width: 100px;
 }
 .header_image{
   height: auto;
-  width: 50%;
+  /* width: 50%; */
   background-image: url("../../public/Landing_Photo3.jpg");
 }
 .modal{
-  min-height: 70%;
-  width: 70%;
+  /* min-height: 70%; */
   margin: auto;
   position: relative;
   background: white;
@@ -30,7 +31,8 @@
 
 .form_container{
   height: 100%;
-  width: 50%;
+  width: 50vw;
+  max-width: 500px;
   padding: 20px;
 }
 .form_container form{
@@ -42,22 +44,22 @@
   justify-content: space-around;
 }
 .form_container input {
-  padding: 15px 0px;
+  padding: 15px;
   outline: 0px;
   border: 0px;
   margin: 20px 0px;
   background-color: inherit;
   border-bottom: 1px solid #816797;
-  color: #816797;
+  color: var(--color-tertiary);
 }
 .form_container form button {
-  padding: 10px;
+  padding: 12px 10px;
   margin: 20px 0px;
   border: 0px;
   border-radius: 10px;
   font-size: 20px;
-  background-color: #816797;
-  color: white;
+  background-color: var(--color-tertiary);
+  color: #000;
 }
 .seperator_container{
   display: flex;
@@ -68,15 +70,39 @@
   height: 0.5px;
 }
 .Other_auth_options{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   margin: 20px 0px;
+  color: #000;
+  align-items: center;
+}
+.Other_auth_options svg{
+  font-size: 20px;
 }
 .Other_auth_options button{
-  width: 75%;
+  margin: 0px;
+  border: 0px;
+}
+.register_button_container{
+  width: 70%;
+  display: flex;
   background-color: white;
-  margin: 20px;
+  margin: 10px 20px;
+  justify-content: space-around;
+  /* margin: 20px; */
   padding: 15px;
   border-radius: 10px;
   border: 1px solid #eee;
   align-content: center;
+}
+.register_button{
+  display: flex;
+  align-items: center;
+}
+.register{
+  background-color: inherit;
+  color: var(--color-tertiary);
+  border: 1px solid var(--color-tertiary);
 }
