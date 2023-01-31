@@ -3,14 +3,21 @@ import { FaApple,
             FaGooglePlusG,
             FaFacebookF } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { Auth } from "../Reducers/AuthReducer"
 
 const Login = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log( isLoggedIn)
+  }
   return (
     <div className="login_container">
       <div className="modal">
         <div className="form_container">
         <h1> Login </h1>
-          <form>
+          <form onSubmit={(e) => handleSubmit(e)}>
             <input type="email" placeholder="Email"/>
             <input type="password" placeholder="Password "/>
             <span>Forgot password? <Link to="reset">Reset</Link></span>
