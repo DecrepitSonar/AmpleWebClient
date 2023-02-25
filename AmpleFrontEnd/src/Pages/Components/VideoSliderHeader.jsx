@@ -26,8 +26,8 @@ const next = () => {
   });
 
   // Play selected video
-  galleryItems[1].pause()
-  galleryItems[2].play()
+  // galleryItems[1].pause()
+  // galleryItems[2].play()
 }
 const prev = () => {
 
@@ -43,15 +43,15 @@ const prev = () => {
       el.classList.add(`video_item_${i}`)
     });
 
-    galleryItems[3].pause()
-    galleryItems[2].play()
+    // galleryItems[3].pause()
+    // galleryItems[2].play()
 
 }
 
 useEffect(() => {
   galleryContainer = document.querySelector('.video_container').childNodes
   galleryItems = document.querySelectorAll(".video_item")
-  galleryItems[2].play()
+  // galleryItems[2].play()
 }, [])
 
     return(

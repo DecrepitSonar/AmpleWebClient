@@ -1,4 +1,4 @@
-import React, {userState} from "react"
+import React, {useEffect, userState} from "react"
 import {Link} from "react-router-dom"
 
 import { IoIosArrowDropleftCircle,
@@ -9,208 +9,59 @@ import { IoEllipsisHorizontal } from "react-icons/io5"
 import VideoSliderHeader from "./Components/VideoSliderHeader"
 import VideoComponent from "./Components/VideoComponent"
 import MobileVideoComponent from "./Components/MobileVideoComponent"
+import { useDispatch, useSelector } from "react-redux"
+import { loadLiveContent } from "../Data/Reducers/livestreamSlice"
+
 // import MobileModel from "./Components/MobileModel"
 
 // <img className={`video_item video_item_${i}`} src={`${process.env.PUBLIC_URL}/${item.image}`}  data-index={i}/>
 
 function Live() {
-  const videos = [
-    {
-      "image": "6lack.jpg",
-      "url": ""
-    },
-    {
-      "image": "AKEELAH.jpg",
-      "url": ""
-    },
-    {
-      "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/sir-devils-video.jpg",
-      "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/b95f9e9ca54c89b18a4f82d90353df4a3bc04af1.mp4"
-    },
-    {
-      "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/lucky-daye-roll-some-mo-video.jpg",
-      "url": ""
-    },
-    {
-       "image": "maxresdefault.jpg",
-       "url": ""
-     }
-  ]
-  const mobileItems = [
-    {
-      "id": 1,
-      "name": "user",
-      "imageURL": ""
-    },
-    {
-      "id": 2,
-      "name": "user",
-      "imageURL": ""
-    },
-    {
-      "id": 3,
-      "name": "user",
-      "imageURL": ""
-    },
-    {
-      "id": 4,
-      "name": "user",
-      "imageURL": ""
-    },
-    {
-      "id": 5,
-      "name": "user",
-      "imageURL": ""
-    },
-    {
-      "id": 6,
-      "name": "user",
-      "imageURL": ""
-    }
-  ]
+  const liveStreams = useSelector(state => state.live)
+  let sectionType = liveStreams.data.type
+  let content = liveStreams.data.items
 
-  const liveVideos = [
-    {
-      "id": 1,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 2,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 3,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 4,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 5,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 6,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 7,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 8,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    }
+  const dispatch = useDispatch()
 
-  ]
-  const liveCasts = [
-    {
-      "id": 1,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 2,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 3,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    },
-    {
-      "id": 4,
-      "name": "",
-      "description": "This is a description of the video or what is happening in the video",
-      "imageURL": ""
-    }
-  ]
+  useEffect(() => {
+    dispatch(loadLiveContent())
+    console.log( liveStreams.data )
+  },[])
 
   return(
     <div className="Container">
-      <VideoSliderHeader videos={videos}/>
       <div className="body_container">
 
-        <div className=" section mobile">
-          <div className="section_header">
-            <span className="section_title">Title</span>
-            <IoIosArrowForward/>
-          </div>
-          <div className="mobile_items">
-          { mobileItems.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><MobileVideoComponent item={item}/></Link> })}
-          </div>
-        </div>{ /* End of mobile section*/}
+      {
+        liveStreams.isLoading ? <span>Loading...</span> :
+          liveStreams.data.forEach(section => {
 
-        <div className="section">
-          <div className="section_header">
-            <span className="section_title">Title</span>
-            <IoIosArrowForward/>
-          </div>
-          <div className="video_component_items">
-            { liveVideos.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><VideoComponent item={item}/></Link> }) }
-          </div>{/*video_component_items*/}
-        </div>{/* End of section*/}
-
-        <div className="section">
-          <div className="section_header">
-            <span className="section_title">Title</span>
-            <IoIosArrowForward/>
-          </div>
-          <div className="video_component_items">
-            { liveCasts.map( (item, i) => { return <VideoComponent key={i} item={item}/> }) }
-          </div>{/*video_component_items*/}
-        </div>{/* End of section*/}
-
-        <div className="section">
-          <div className="section_header">
-            <span className="section_title">Title</span>
-            <IoIosArrowForward/>
-          </div>
-          <div className="video_component_items">
-            { liveCasts.map( (item, i) => { return <VideoComponent key={i} item={item}/> }) }
-          </div>{/*video_component_items*/}
-        </div>{/* End of section*/}
-
-        <div className="section">
-          <div className="section_header">
-            <span className="section_title">Title</span>
-            <IoIosArrowForward/>
-          </div>
-          <div className="video_component_items">
-            { liveCasts.map( (item, i) => { return <VideoComponent key={i} item={item}/> }) }
-          </div>{/*video_component_items*/}
-        </div>{/* End of section*/}
-
-        <div className="section">
-          <div className="section_header">
-            <span className="section_title">Title</span>
-            <IoIosArrowForward/>
-          </div>
-          <div className="video_component_items">
-            { liveCasts.map( (item, i) => { return <VideoComponent key={i} item={item}/> }) }
-          </div>{/*video_component_items*/}
-        </div>{/* End of section*/}
+            switch( section.type){
+              case "mobile": 
+                <div className=" section mobile">
+                <div className="section_header">
+                  <span className="section_title">{section.title}</span>
+                  <IoIosArrowForward/>
+                </div>
+                <div className="mobile_items">
+                  { section.items.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><MobileVideoComponent item={item}/></Link> })}
+                  </div>
+                </div>
+                break;
+      
+                default: 
+                <div className="section">
+                  <div className="section_header">
+                    <span className="section_title">{section.title}</span>
+                    <IoIosArrowForward/>
+                  </div>
+                  <div className="video_component_items">
+                    { section.items.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><VideoComponent item={item}/></Link> }) }
+                  </div>{/*video_component_items*/}
+                </div>
+              }
+          })
+        }
 
       </div>
     </div>
@@ -218,3 +69,37 @@ function Live() {
 }
 
 export default Live
+
+
+// {liveStreams.isLoading ? <span>Loading...</span> : 
+//         liveStreams.data.forEach(section => {
+//           switch( section.type){
+//             case "mobile": 
+//               <div className=" section mobile">
+//               <div className="section_header">
+//                 <span className="section_title">Title</span>
+//                 <IoIosArrowForward/>
+//               </div>
+//               <div className="mobile_items">
+//               { content.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><MobileVideoComponent item={item}/></Link> })}
+//               </div>
+//             </div>
+//             break;
+    
+//             default: 
+    
+//               <div className="section">
+//                 <div className="section_header">
+//                   <span className="section_title">Title</span>
+//                   <IoIosArrowForward/>
+//                 </div>
+//                 <div className="video_component_items">
+//                   { content.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><VideoComponent item={item}/></Link> }) }
+//                 </div>{/*video_component_items*/}
+//               </div>
+    
+//             }
+//         })
+        
+//       }
+

@@ -3,11 +3,14 @@ import { IoEllipsisHorizontal } from "react-icons/io5"
 
 function MobileVideoComponent(props){
   let item = props.item
+  console.log( item)
   return(
     <div className="mobile_item_container">
-      <div key={item.id}  className="mobile_item">
-        <IoEllipsisHorizontal/>
-      </div>
+
+        <video muted={true} className="mobile_item">
+            <source src={item.contentURL} type="video/mp4"/>
+        </video>
+        
       <div className="component_description">
         <div className="component_avi"></div>
         <span>{item.name}</span>

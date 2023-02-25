@@ -2,14 +2,17 @@ import React,{useEffect, useState} from "react"
 import { Link, useSearchParams, useLocation } from "react-router-dom"
 
 import { AiFillHome,
+             AiFillLike,
              AiOutlineEllipsis,
              AiOutlinePoweroff } from "react-icons/ai"
 import { MdVideoLibrary,
              MdQueryStats,
-             MdOutlineAddCircleOutline } from "react-icons/md"
+             MdOutlineAddCircleOutline,
+             MdBookmark} from "react-icons/md"
 import { BsMusicNoteList,
              BsHeartFill,
-             BsListStars } from "react-icons/bs"
+             BsListStars, 
+             BsGear} from "react-icons/bs"
 import { IoIosCog } from "react-icons/io"
 
 function ChannelStrip(){
@@ -50,11 +53,13 @@ function Aside(props){
           <Link to="/listen"><li onClick={ () => setActiveLink("/listen")} className={activeLink == "/listen" ? "active_list_item": ""}><BsMusicNoteList/>Listen</li></Link>
         </ul>
       </div>
-      <span className="aside_section_title">Library</span>
       <div className="Library_content">
         <ul>
-          <Link to="/saved"><li onClick={ () => setActiveLink("/saved")} className={activeLink == "/saved" ? "active_list_item": ""}><BsHeartFill/>Saved</li></Link>
+          <Link to="/saved"><li onClick={ () => setActiveLink("/saved")} className={activeLink == "/saved" ? "active_list_item": ""}><MdBookmark/>Saved</li></Link>
+          <Link to="/saved"><li onClick={ () => setActiveLink("/saved")} className={activeLink == "/saved" ? "active_list_item": ""}><AiFillLike/> Liked</li></Link>
           <Link to="/history"><li onClick={ () => setActiveLink("/history")} className={activeLink == "/history" ? "active_list_item": ""}><BsListStars/>History</li></Link>
+          <Link to="/settings"><li onClick={ () => setActiveLink("/settings")} className={activeLink == "/Settings" ? "active_list_item": ""}><BsGear/>Settings</li></Link>
+
         </ul>
       </div>
       

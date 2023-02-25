@@ -1,22 +1,39 @@
 .login_container{
   height:100vh;
   width: 100vw;
-  background-color: var(--color-primary);
+  background-color: rgba(0,0,0,.5);
   position: relative;
   align-items: center;
   justify-content: space-around;
   display: flex;
   color: #fff;
+  position: fixed;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 3;
 }
 .login_container h1{
   color: white;
   margin: auto;
   width: 100px;
+  
 }
 .header_image{
   height: auto;
   /* width: 50%; */
   background-image: url("../../public/Landing_Photo3.jpg");
+}
+.closeButton{
+  color: var(--color-tertiary);;
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+  left: 20px;
+  border: 0px;
+  font-size: 2em;
+  background-color: transparent;
 }
 .modal{
   /* min-height: 70%; */
@@ -60,6 +77,10 @@
   font-size: 20px;
   background-color: var(--color-tertiary);
   color: #000;
+}
+.errorMessage{
+  margin: auto;
+  color: red;
 }
 .seperator_container{
   display: flex;

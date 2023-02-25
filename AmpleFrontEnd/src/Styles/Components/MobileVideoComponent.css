@@ -5,7 +5,7 @@
 }
 .mobile_item_container p{
   margin: 10px 0px;
-  width: 200px;
+  width: 150px;
   font-size: .8em;
 }
 .mobile_items{
@@ -17,8 +17,8 @@
   justify-content: space-between;
 }
 .mobile_item{
-  height: 250px;
-  width: 200px;
+  /* height: 250px; */
+  width: 150px;
   background-color: #eee;
   position: relative;
   display: flex;

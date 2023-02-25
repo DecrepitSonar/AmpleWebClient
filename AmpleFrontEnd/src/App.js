@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom"
+import { useEffect } from "react"
+import { useSelector } from "react-redux"
 
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
@@ -18,11 +20,10 @@ import WatchVideo from "./Pages/WatchVideo"
 
 function App() {
   return (
+
     <div className="App">
       <Routes>
         <Route path="/home" />
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<Register/>}/>
         <Route path="/" element={<Wrapper/>}>
           <Route index element={<Live/>}/>
           <Route path="/watch" element={<Watch/>}/>

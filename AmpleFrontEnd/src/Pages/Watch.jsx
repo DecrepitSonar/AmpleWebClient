@@ -3,10 +3,12 @@ import { Link } from "react-router-dom"
 import { IoIosArrowForward } from "react-icons/io"
 import VideoSliderHeader from "./Components/VideoSliderHeader"
 import VideoComponent from "./Components/VideoComponent"
+import { useSelector } from "react-redux"
 
 function Watch() {
 
-  const videos = [
+    const videos = useSelector( state => state.videos )
+  const videoList = [
     {
       "image": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images/Kehlani44.jpg",
       "url": "https://prophile.nyc3.digitaloceanspaces.com/Videos/8a94e2f767e42cfe9cb4355b31ffbf85f3cd6eb9.mp4"
@@ -29,6 +31,7 @@ function Watch() {
      }
   ]
 
+  console.log( videos)
   let sectionVideos = [
   {
     "id": 1,
@@ -466,7 +469,7 @@ function Watch() {
 
   return(
     <div className="Container">
-      <VideoSliderHeader videos={videos}/>
+      <VideoSliderHeader videos={videoList}/>
       <div className="body_container">
         <div className="section">
           <div className="section_header">
@@ -478,7 +481,7 @@ function Watch() {
           </div>{/*video_component_items*/}
         </div>{/* End of section*/}
       </div>
-    </div>
+  </div>
   )
 }
 

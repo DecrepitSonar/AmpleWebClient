@@ -6,11 +6,17 @@ import { IoIosSearch,
             IoIosMenu  } from "react-icons/io"
 import { IoEllipsisVertical } from "react-icons/io5"
 import { AiOutlineVideoCameraAdd } from "react-icons/ai"
+import { auth } from "../../Data/Reducers/authSlice"
+import { useSelector } from "react-redux"
 
-function Header(){
+function Header(props){
   const [searchQuery, setSearchQuery] = useSearchParams({})
   let navigate = useNavigate()
 
+  let authCredentials = useSelector((state) => state.auth)
+  let user = authCredentials.user
+  let LoggedIn = authCredentials.LoggedIn
+  
   function search(){
     navigate("/search")
   }
@@ -37,7 +43,7 @@ function Header(){
 
   return(
     <div className="Header">
-
+    
       <div className="logoContainer">
       <button><IoIosMenu/></button>
         <img src={`${process.env.PUBLIC_URL}/Logo.png`} height="30px" width="auto"/>
@@ -49,11 +55,22 @@ function Header(){
       </div>
 
       <div className="header_right_Items">
-        <button onClick={() => navigate("/stream")}><AiOutlineVideoCameraAdd/></button>
-        <div className="user_Avi_container">
-          <span>User</span>
-          <div className="Avi"></div>
-        </div>
+        { LoggedIn ? 
+        <>
+          <button onClick={() => navigate("/stream")}><AiOutlineVideoCameraAdd/></button>
+          <div className="user_Avi_container">
+            <span>{user.username}</span>
+            <div className="Avi"></div>
+          </div>
+        </>
+         : 
+         <>
+         <button onClick={() => navigate("/stream")}><AiOutlineVideoCameraAdd/></button>
+         <div className="user_Avi_container">
+         <button className="login-button-header" onClick={() => props.OpenModal(true)}>Login</button>
+         </div>
+       </>
+        }
         <button><IoEllipsisVertical/></button>
       </div>
 
