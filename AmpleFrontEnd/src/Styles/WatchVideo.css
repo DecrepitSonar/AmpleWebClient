@@ -4,7 +4,7 @@
   background-color: #000;
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;;
 }
 .videoHeader video{
   margin: auto;

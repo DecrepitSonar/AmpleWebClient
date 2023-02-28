@@ -25,7 +25,6 @@ function Live() {
 
   useEffect(() => {
     dispatch(loadLiveContent())
-    console.log( liveStreams.data )
   },[])
 
   return(
@@ -34,22 +33,39 @@ function Live() {
 
       {
         liveStreams.isLoading ? <span>Loading...</span> :
-          liveStreams.data.forEach(section => {
-
+          liveStreams.data.map(section => {
             switch( section.type){
               case "mobile": 
+
+              return ( 
                 <div className=" section mobile">
-                <div className="section_header">
-                  <span className="section_title">{section.title}</span>
-                  <IoIosArrowForward/>
-                </div>
-                <div className="mobile_items">
-                  { section.items.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><MobileVideoComponent item={item}/></Link> })}
+                  <div className="section_header">
+                    <span className="section_title">{section.title}</span>
+                    <IoIosArrowForward/>
+                  </div>
+                  <div className="mobile_items">
+                  { section.items.map( (item, i) => { return <Link  to={`/stream/:${item.id}`} ><MobileVideoComponent key={i} item={item}/></Link> })}
                   </div>
                 </div>
-                break;
-      
-                default: 
+              )
+
+              case "Podcast": 
+
+                return( 
+                  <div className="section">
+                    <div className="section_header">
+                      <span className="section_title">{section.title}</span>
+                      <IoIosArrowForward/>
+                    </div>
+                    <div className="video_component_items">
+                      { section.items.map( (item, i) => { return <VideoComponent item={item}/>}) }
+                    </div>{/*video_component_items*/}
+                  </div>
+                  )
+
+              default: 
+
+                return( 
                 <div className="section">
                   <div className="section_header">
                     <span className="section_title">{section.title}</span>
@@ -59,7 +75,10 @@ function Live() {
                     { section.items.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><VideoComponent item={item}/></Link> }) }
                   </div>{/*video_component_items*/}
                 </div>
-              }
+                )
+
+            }
+           
           })
         }
 
@@ -70,6 +89,10 @@ function Live() {
 
 export default Live
 
+
+
+
+{/* <Link key={i} to={`/stream/:${item.id}`} ><VideoComponent item={item}/></Link> })  */}
 
 // {liveStreams.isLoading ? <span>Loading...</span> : 
 //         liveStreams.data.forEach(section => {
