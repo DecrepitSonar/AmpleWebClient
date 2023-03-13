@@ -1,13 +1,13 @@
 import React, { useRef } from "react"
 import {IoEllipsisHorizontal } from "react-icons/io5"
 import { GiAerialSignal } from "react-icons/gi"
+
 const VideoComponent = (props) => {
   let item = props.item
 
   let videoRef = useRef()
 
   const handleNavigate = ( path ) => {
-    console.log( path )
   }
 
   const togglePlay = ( e ) => {
@@ -17,7 +17,7 @@ const VideoComponent = (props) => {
   }
   return(
     <div className="video_component_item">
-      <video onClick={() => handleNavigate(`/stream/:${item.id}`)} 
+      <video onClick={() => handleNavigate(`/stream/${item.id}`)} 
             ref={videoRef} 
             onMouseOver={(e) => { togglePlay(e)}} 
             onMouseLeave={(e) => togglePlay(e)} 
@@ -30,11 +30,11 @@ const VideoComponent = (props) => {
       <div className="video_component_description">
         <div className="video_component_description_header">
           <img className="component_avi" alt="artist" src={`https://prophile.nyc3.cdn.digitaloceanspaces.com/images%2F${item.artistImageURL}.jpg`}/>
-          <span> {item.artist} </span>
+          <span> Artist {item.artist} </span>
           <IoEllipsisHorizontal/>
         </div> {/*video_component_description_header*/}
-        <span className="video_description">{item.title}</span>
-        <span className="live"> <i><GiAerialSignal/></i> Live : {item.views}</span>
+        <span className="video_description">Title {item.title}</span>
+        <span>Views : {item.views}</span>
       </div>{/*video_component_description*/}
     </div>
   )

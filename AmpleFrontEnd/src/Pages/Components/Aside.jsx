@@ -14,6 +14,7 @@ import { BsMusicNoteList,
              BsListStars, 
              BsGear} from "react-icons/bs"
 import { IoIosCog } from "react-icons/io"
+import { GiCompass } from "react-icons/gi"
 
 function ChannelStrip(){
 
@@ -50,16 +51,15 @@ function Aside(props){
         <ul>
           <Link to="/"> <li onClick={ () => setActiveLink("/")} className={activeLink === "/" ? "active_list_item": ""}><AiFillHome/>Live</li></Link>
           <Link to="/watch"><li onClick={ () => setActiveLink("/watch")} className={activeLink === "/watch" ? "active_list_item": ""}><MdVideoLibrary/>Watch</li></Link>
-          <Link to="/listen"><li onClick={ () => setActiveLink("/listen")} className={activeLink == "/listen" ? "active_list_item": ""}><BsMusicNoteList/>Listen</li></Link>
+          <Link to="/discover"><li onClick={ () => setActiveLink("/discover")} className={activeLink === "/discover" ? "active_list_item": ""}><GiCompass/> Discover</li></Link>
         </ul>
       </div>
       <div className="Library_content">
         <ul>
           <Link to="/saved"><li onClick={ () => setActiveLink("/saved")} className={activeLink == "/saved" ? "active_list_item": ""}><MdBookmark/>Saved</li></Link>
-          <Link to="/saved"><li onClick={ () => setActiveLink("/saved")} className={activeLink == "/saved" ? "active_list_item": ""}><AiFillLike/> Liked</li></Link>
+          <Link to="/likes"><li onClick={ () => setActiveLink("/likes")} className={activeLink == "/likes" ? "active_list_item": ""}><AiFillLike/> Likes</li></Link>
           <Link to="/history"><li onClick={ () => setActiveLink("/history")} className={activeLink == "/history" ? "active_list_item": ""}><BsListStars/>History</li></Link>
           <Link to="/settings"><li onClick={ () => setActiveLink("/settings")} className={activeLink == "/Settings" ? "active_list_item": ""}><BsGear/>Settings</li></Link>
-
         </ul>
       </div>
       

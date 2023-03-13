@@ -13,6 +13,10 @@
 @import "./Components/MobileVideoComponent";
 @import "./Components/AVFooter";
 
+/* Loaders  */
+@import "./SkeletonLoadersStyles/Components/MobileVideoSkeletonComponent.css";
+@import "./SkeletonLoadersStyles/Components/VideoComponentSkeleton.css";
+
 :root{
   --color-neutral: #1F1F1F;
   --color-primary: #1B2430;
@@ -26,6 +30,7 @@ html{
   background-color: #1F1F1F;
   color: var(--text-color);
   border: #aaa;
+  /* overflow: hidden; */
 }
 *{
   background-color:inherit;

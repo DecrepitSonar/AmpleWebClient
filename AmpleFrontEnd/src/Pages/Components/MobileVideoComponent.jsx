@@ -3,7 +3,6 @@ import { IoEllipsisHorizontal } from "react-icons/io5"
 
 function MobileVideoComponent(props){
   let item = props.item
-  console.log( item)
   return(
     <div className="mobile_item_container">
 

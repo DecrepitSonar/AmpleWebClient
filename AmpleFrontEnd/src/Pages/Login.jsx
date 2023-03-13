@@ -14,8 +14,6 @@ const Login = (props) => {
 
   const errorStatus = isLoggedIn.error
   
-
-
   return (
     <div className="login_container" 
       style={props.modalOpen ?{"display" : "flex"} : {"display" : "none"}}
@@ -34,7 +32,6 @@ const LoginModal = (props) => {
     e.preventDefault()
     dispatch(login(authForm))
   }
-
 
   return(
     <div className="modal">

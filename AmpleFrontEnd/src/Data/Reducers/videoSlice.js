@@ -2,13 +2,19 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    videos: [],
+    data: [],
     isLoading: false, 
     error: ""
 }
-const getVideos = createAsyncThunk("videos/getVideos", (id ) => {
-    return axios.get(`http://localhost:8000/api/v1/videos?id=${id}`)
-    .then( response => { return response })
+
+const getVideos = createAsyncThunk("videos/getVideos", id  => {
+    if( id == undefined ){
+        return axios.get(`http://localhost:8000/api/v1/watch`)
+        .then( response => { return response })    
+    }else{
+        return axios.get(`http://localhost:8000/api/v1/watch?id=${id}`)
+        .then( response => { return response })
+    }
 })
 
 const videoSlice = createSlice({
@@ -21,14 +27,12 @@ const videoSlice = createSlice({
         })
         builder.addCase(getVideos.fulfilled, ( state, action ) => {
             state.isLoading = false 
-            state.videos = action.payload.data
+            state.data = action.payload.data
         }) 
-        builder.addCase(getVideos.rejected, ( state, action ) => {
+        builder.addCase(getVideos.rejected, ( state ) => {
             state.isLoading = false 
-            console.log(  action.payload.error )
         })
     }
-
 })
 
 export const videos = videoSlice.reducer

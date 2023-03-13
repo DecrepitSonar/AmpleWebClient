@@ -35,9 +35,9 @@ function App() {
           <Route path="/stats" element={<Stats/>}/>
           <Route path="/search" element={<Search/>}/>
           <Route path="/stream" element={<Stream/>}/>
-          <Route path="/stream/:id" element={<Stream/>}/>
-          <Route path="/watch/:id" element={<WatchVideo/>}/>
         </Route>
+        <Route path="/stream/:id" element={<Stream/>}/>
+        <Route path="/watch/:id" element={<WatchVideo/>}/>
       </Routes>
     </div>
   );

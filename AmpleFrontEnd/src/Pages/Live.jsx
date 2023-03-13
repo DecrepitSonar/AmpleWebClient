@@ -1,16 +1,13 @@
 import React, {useEffect, userState} from "react"
 import {Link} from "react-router-dom"
 
-import { IoIosArrowDropleftCircle,
-             IoIosArrowDroprightCircle,
-             IoIosArrowForward } from "react-icons/io"
-import { IoEllipsisHorizontal } from "react-icons/io5"
+import { IoIosArrowForward } from "react-icons/io"
 
-import VideoSliderHeader from "./Components/VideoSliderHeader"
-import VideoComponent from "./Components/VideoComponent"
 import MobileVideoComponent from "./Components/MobileVideoComponent"
 import { useDispatch, useSelector } from "react-redux"
 import { loadLiveContent } from "../Data/Reducers/livestreamSlice"
+import LiveVideoComponent from "./Components/LiveVideoComponent"
+import PageLoader from "./SkeletonLoaders/PageLoader"
 
 // import MobileModel from "./Components/MobileModel"
 
@@ -18,9 +15,6 @@ import { loadLiveContent } from "../Data/Reducers/livestreamSlice"
 
 function Live() {
   const liveStreams = useSelector(state => state.live)
-  let sectionType = liveStreams.data.type
-  let content = liveStreams.data.items
-
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -32,7 +26,7 @@ function Live() {
       <div className="body_container">
 
       {
-        liveStreams.isLoading ? <span>Loading...</span> :
+        liveStreams.isLoading ? <PageLoader/> :
           liveStreams.data.map(section => {
             switch( section.type){
               case "mobile": 
@@ -41,10 +35,9 @@ function Live() {
                 <div className=" section mobile">
                   <div className="section_header">
                     <span className="section_title">{section.title}</span>
-                    <IoIosArrowForward/>
                   </div>
                   <div className="mobile_items">
-                  { section.items.map( (item, i) => { return <Link  to={`/stream/:${item.id}`} ><MobileVideoComponent key={i} item={item}/></Link> })}
+                  { section.items.map( (item, i) => { return <MobileVideoComponent key={i} item={item}/>})}
                   </div>
                 </div>
               )
@@ -55,10 +48,9 @@ function Live() {
                   <div className="section">
                     <div className="section_header">
                       <span className="section_title">{section.title}</span>
-                      <IoIosArrowForward/>
                     </div>
                     <div className="video_component_items">
-                      { section.items.map( (item, i) => { return <VideoComponent item={item}/>}) }
+                      { section.items.map( (item, i) => { return <LiveVideoComponent item={item} key={i}/>}) }
                     </div>{/*video_component_items*/}
                   </div>
                   )
@@ -69,10 +61,9 @@ function Live() {
                 <div className="section">
                   <div className="section_header">
                     <span className="section_title">{section.title}</span>
-                    <IoIosArrowForward/>
                   </div>
                   <div className="video_component_items">
-                    { section.items.map( (item, i) => { return <Link key={i} to={`/stream/:${item.id}`} ><VideoComponent item={item}/></Link> }) }
+                    { section.items.map( (item, i) => { return <LiveVideoComponent item={item}/> }) }
                   </div>{/*video_component_items*/}
                 </div>
                 )
