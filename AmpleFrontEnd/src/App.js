@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
 import Login from "./Pages/Login"
@@ -19,9 +19,13 @@ import WatchVideo from "./Pages/WatchVideo"
 
 
 function App() {
-  return (
+
+  const [modalOpen, OpenModal] = useState(false)
+
+  return ( 
 
     <div className="App">
+      <Login modalOpen={modalOpen} OpenModal={OpenModal}/>
       <Routes>
         <Route path="/home" />
         <Route path="/" element={<Wrapper/>}>
@@ -34,9 +38,8 @@ function App() {
           <Route path="/history" element={<History/>}/>
           <Route path="/stats" element={<Stats/>}/>
           <Route path="/search" element={<Search/>}/>
-          <Route path="/stream" element={<Stream/>}/>
         </Route>
-        <Route path="/stream/:id" element={<Stream/>}/>
+        <Route path="/stream/:id" element={<Stream toggleLogin={OpenModal}/>}/>
         <Route path="/watch/:id" element={<WatchVideo/>}/>
       </Routes>
     </div>

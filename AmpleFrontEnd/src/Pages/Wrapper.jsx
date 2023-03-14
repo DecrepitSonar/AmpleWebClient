@@ -5,13 +5,10 @@ import Aside from "./Components/Aside"
 import AVFooter from "./Components/AVFooter"
 import Login from "./Login"
 
-function Wrapper(){
-  const [modalOpen, OpenModal] = useState(false)
-
+function Wrapper(props){
   return(
     <div className="Wrapper" >
-    <Header OpenModal={OpenModal}/>
-    <Login modalOpen={modalOpen} OpenModal={OpenModal}/>
+    <Header OpenModal={props.OpenModal}/>
       <div className="main">
         <Aside/>
         <Outlet/>

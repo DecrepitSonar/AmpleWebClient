@@ -1,55 +1,39 @@
 import React, { useEffect, useRef, useState } from "react"
 import { HiOutlinePaperAirplane } from "react-icons/hi"
 import { useDispatch, useSelector } from "react-redux"
-import { useLocation, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { Socket } from "../Data/socket"
-
-import { mediaPlayer, postComment } from "../Data/Reducers/mediaPlayerslice"
+import Login from "./Login"
 
 function CommentSection(props){
 
-  let dispatch = useDispatch()
-  let mediaState = useSelector((state) => state.mediaPlayer)
   let textAreaRef = useRef()
 
-  const [comments, postComment] = useState([])
+  let isLoggedIn = useSelector( state => state.auth.isLoggedIn)
 
   function handleCommentSubmit(e){
 
-      if(e.target.value.length > 1 ){ 
+    if(e.target.value.length > 1  && isLoggedIn ){ 
 
-      Socket.emit("data", {
-        "id": "dadfasdf",
-        "username": "rib",
-        "imageURL": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images%2F$Lucky-Daye-Real-Games-768x443.jpg`",
-        "comment": e.target.value,
-      })
+    Socket.emit("data", {
+      "id": "dadfasdf",
+      "username": "rib",
+      "imageURL": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images%2F$Lucky-Daye-Real-Games-768x443.jpg`",
+      "comment": e.target.value,
+      "streamId": props.id
+    })
 
-        textAreaRef.current.value = ""
-      }
+      textAreaRef.current.value = ""
+    }
 
-  }
-  
-  useEffect(() => {
-      Socket.connect()
-      Socket.on("connected", (data) => {
-        console.log( "connected")
-        postComment(previous => [...previous, {"type": "connection", "message": "User Connected"}])
-      })
-  },[])
-
-
-useEffect(() => {
-  Socket.on("message", data => {
-    postComment(previous => [...previous, data])
-  })
-},[comments])
+}
 
   return(
     <div className="commentSection">
+        <div className="commentSectionHeader"></div>
         <div className="comments-container">
  
-        { comments.length > 0 ? comments.map( (item, i ) => {
+        { props.comments.length > 0 ? props.comments.map( (item, i ) => {
           switch( item.type){
             case "connection":
               return ( <p key={i} className="comment-message">{item.message}</p>)
@@ -69,25 +53,60 @@ useEffect(() => {
 
       </div>
       <div className="comment-input">
+        {isLoggedIn ? null : <div className="auth-button-container">
+            <button onClick={() => props.toggleLogin(true)}>Login</button>
+        </div> }
         <button onClick={(e) => handleCommentSubmit(e) }><HiOutlinePaperAirplane/> </button>
-        <input ref={textAreaRef} onKeyDown={ key => key.key === "Enter"  ? handleCommentSubmit( key ) : null  } type="text" placeholder="Post a comment"/>
+        <input disabled={isLoggedIn ? false : true } ref={textAreaRef} onKeyDown={ key => key.key === "Enter"  ? handleCommentSubmit( key ) : null  } type="text" placeholder={isLoggedIn ?  "Post a comment" : "Login to join chat"}/>
       </div>
     </div>
   )
 
 }
 
-function Stream() {
+function Stream(props) {
   
+  const [comments, postComment] = useState([])
+
   let videoRef = useRef()
   let { id }  = useParams()
+  let dispatch = useDispatch()
+  
+  useEffect(() => {
+    Socket.connect()
+    Socket.on("connected", (data) => {
+      console.log( "connected")
+      postComment(previous => [...previous, {"type": "connection", "message": "User Connected"}])
+    })
+
+    Socket.emit("join", id)
+
+    return () => {
+      console.log( "disconnecting")
+      Socket.disconnect()
+      Socket.emit("leave", id)
+    }
+  },[])
+
+
+useEffect(() => {
+  Socket.on("message", data => {
+    postComment(previous => [...previous, data])
+  })
+
+
+  return () => {
+    Socket.off("message")
+  }
+},[comments])
   
   return(
     <div className="Container stream">
-      <video  autoPlay ref={videoRef} controls className="videoContainer">
+      <Login/>
+      <video  muted autoPlay ref={videoRef} controls className="videoContainer">
         <source src={`https://prophile.nyc3.digitaloceanspaces.com/Videos/${id}.mp4`} type="video/mp4"/>
       </video>
-     <CommentSection video={videoRef}/>
+     <CommentSection toggleLogin={props.toggleLogin}comments={comments} video={videoRef} id={id}/>
     </div>
   )
 }

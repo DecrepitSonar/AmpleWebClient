@@ -1,5 +1,7 @@
 import { io } from "socket.io-client";
 
-let URL = "http://localhost:8001"
+let URL = "http://localhost:8000"
 
-export const Socket = io(URL)
+export const Socket = io(URL, {
+    autoConnect: false 
+})

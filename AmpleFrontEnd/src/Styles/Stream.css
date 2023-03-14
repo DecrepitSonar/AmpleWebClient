@@ -13,6 +13,15 @@
   bottom: 0px;
   right: 0px;
 }
+.commentSectionHeader{
+  height: calc(100vh / 15);
+  top: 0px;
+  left: 0px; 
+  right: 0px;
+  /* border: 1px solid red; */
+  position: absolute;
+  z-index: 2
+}
 .comment-input{
   display: flex;
   align-items: center;
@@ -43,7 +52,7 @@
 
 .comments-container{
   position: absolute;
-  top: 0px;
+  top: calc(100vh / 15);
   bottom: 60px;
   right: 0px;
   left: 0px;
@@ -64,7 +73,6 @@
 .comment-message{
 
 }
-
 .comment-user-info{
   display: flex;
   align-items: center;
@@ -77,4 +85,21 @@
   background-color: #ddd;
   margin-right: 20px;
   border-radius: 20px;;
+}
+.auth-button-container{
+  top: 0px; 
+  left: 0px; 
+  bottom: 0px;
+  right: 0px;
+  /* border: 1px solid red; */
+  position: absolute;
+  background-color: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: right;
+}
+
+.auth-button-container button{
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
