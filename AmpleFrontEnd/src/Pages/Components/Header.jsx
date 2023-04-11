@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
 
 import { IoIosSearch,
             IoIosAdd,
@@ -8,10 +8,15 @@ import { IoEllipsisVertical } from "react-icons/io5"
 import { AiOutlineVideoCameraAdd } from "react-icons/ai"
 import { auth } from "../../Data/Reducers/authSlice"
 import { useSelector } from "react-redux"
+import { MdHomeFilled } from "react-icons/md"
+import { RxHamburgerMenu } from "react-icons/rx"
 
 function Header(props){
   const [searchQuery, setSearchQuery] = useSearchParams({})
   let navigate = useNavigate()
+  let location = useLocation()
+
+  let path = location.pathname.split('/')[1]
 
   let authCredentials = useSelector((state) => state.auth)
   let user = authCredentials.user
@@ -45,33 +50,32 @@ function Header(props){
     <div className="Header">
     
       <div className="logoContainer">
-      <button><IoIosMenu/></button>
-        <img src={`${process.env.PUBLIC_URL}/Logo.png`} height="30px" width="auto"/>
+        {path === "stream" ? <button className="header_button"  onClick={() => navigate("/")}><MdHomeFilled/></button> : <button className="header_button" ><RxHamburgerMenu/> </button>}
+        <img src={`${process.env.PUBLIC_URL}/Logo.png`} height="30px" width="auto"/>  
+        <span>Alpha Channel</span>
       </div>
 
       <div className="Search_input_container">
         <input onBlur={() => returnFocus()} onFocus={()=> search()} onChange={(e) => setSearchQuery({"q":e.target.value})} type="text" placeholder="Search"/>
-        <button><IoIosSearch/></button>
+        <button className="header_button"><IoIosSearch/></button>
       </div>
 
       <div className="header_right_Items">
         { LoggedIn ? 
         <>
-          <button onClick={() => navigate("/stream")}><AiOutlineVideoCameraAdd/></button>
+          <button className="header_button" onClick={() => navigate("/stream")}><AiOutlineVideoCameraAdd/></button>
           <div className="user_Avi_container">
-            <span>{user.username}</span>
             <div className="Avi"></div>
           </div>
         </>
          : 
          <>
-         <button onClick={() => navigate("/stream")}><AiOutlineVideoCameraAdd/></button>
+         <button className="header_button" onClick={() => navigate("/stream")}><AiOutlineVideoCameraAdd/></button>
          <div className="user_Avi_container">
          <button className="login-button-header" onClick={() => props.OpenModal(true)}>Login</button>
          </div>
        </>
         }
-        <button><IoEllipsisVertical/></button>
       </div>
 
     </div>

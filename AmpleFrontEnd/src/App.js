@@ -18,6 +18,8 @@ import History from "./Pages/History"
 import WatchVideo from "./Pages/WatchVideo"
 
 
+import Header from "./Pages/Components/Header"
+
 function App() {
 
   const [modalOpen, OpenModal] = useState(false)
@@ -26,10 +28,12 @@ function App() {
 
     <div className="App">
       <Login modalOpen={modalOpen} OpenModal={OpenModal}/>
+      <Header OpenModal={OpenModal}/>
       <Routes>
-        <Route path="/home" />
-        <Route path="/" element={<Wrapper/>}>
-          <Route index element={<Live/>}/>
+        
+        <Route path="/" element={<Wrapper OpenModal={OpenModal}/>}>
+          <Route index element={<div>Home</div>}/>
+          <Route path="/live" element={<Live/>}/>
           <Route path="/watch" element={<Watch/>}/>
           <Route path="/listen" element={<Listen/>}/>
           <Route path="/listen/:id" element={<TrackDetail/>}/>

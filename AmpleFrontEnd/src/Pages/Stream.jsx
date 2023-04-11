@@ -3,21 +3,21 @@ import { HiOutlinePaperAirplane } from "react-icons/hi"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { Socket } from "../Data/socket"
+import Aside from "./Components/Aside"
 import Login from "./Login"
 
 function CommentSection(props){
 
   let textAreaRef = useRef()
-
-  let isLoggedIn = useSelector( state => state.auth.isLoggedIn)
+  let auth = useSelector( state => state.auth)
+  let isLoggedIn = auth.LoggedIn
 
   function handleCommentSubmit(e){
 
     if(e.target.value.length > 1  && isLoggedIn ){ 
 
     Socket.emit("data", {
-      "id": "dadfasdf",
-      "username": "rib",
+      "username": auth.user.username,
       "imageURL": "https://prophile.nyc3.cdn.digitaloceanspaces.com/images%2F$Lucky-Daye-Real-Games-768x443.jpg`",
       "comment": e.target.value,
       "streamId": props.id
@@ -71,13 +71,14 @@ function Stream(props) {
   let videoRef = useRef()
   let { id }  = useParams()
   let dispatch = useDispatch()
+  let auth = useSelector( state => state.auth)
   
   useEffect(() => {
     Socket.connect()
-    Socket.on("connected", (data) => {
-      console.log( "connected")
-      postComment(previous => [...previous, {"type": "connection", "message": "User Connected"}])
-    })
+    // Socket.on("connected", (data) => {
+    //   console.log( "connected")
+    //   postComment(previous => [...previous, {"type": "connection", "message": "User Connected"}])
+    // })
 
     Socket.emit("join", id)
 
@@ -86,14 +87,13 @@ function Stream(props) {
       Socket.disconnect()
       Socket.emit("leave", id)
     }
-  },[])
 
+  },[])
 
 useEffect(() => {
   Socket.on("message", data => {
     postComment(previous => [...previous, data])
   })
-
 
   return () => {
     Socket.off("message")

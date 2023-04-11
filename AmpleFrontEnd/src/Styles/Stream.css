@@ -3,11 +3,13 @@
 }
 .videoContainer{
   width: calc(100vw - 400px); 
+  height: calc(100vh - 66.5px);
   /* border: 1px solid red;  */
   background-color: #000;
 }
 .commentSection{
   width: 400px; 
+  height: calc(100vh - 66.5px);
   position: relative;
   top: 0px;
   bottom: 0px;
@@ -17,7 +19,7 @@
   height: calc(100vh / 15);
   top: 0px;
   left: 0px; 
-  right: 0px;
+  /* right: 0px; */
   /* border: 1px solid red; */
   position: absolute;
   z-index: 2

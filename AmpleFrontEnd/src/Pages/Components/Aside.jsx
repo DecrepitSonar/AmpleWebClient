@@ -8,7 +8,8 @@ import { AiFillHome,
 import { MdVideoLibrary,
              MdQueryStats,
              MdOutlineAddCircleOutline,
-             MdBookmark} from "react-icons/md"
+             MdBookmark,
+             MdHome} from "react-icons/md"
 import { BsMusicNoteList,
              BsHeartFill,
              BsListStars, 
@@ -34,24 +35,19 @@ function Aside(props){
 
   const [activeLink, setActiveLink] = useState("")
 
-  let params = []
   let location = useLocation()
-
-  function handleLink(link) {
-    setActiveLink(link)
-  }
 
   useEffect( () => {
        setActiveLink( location.pathname)
   },[activeLink])
 
   return(
-    <div className="Aside">
+    <div className={` ${activeLink === "stream" ? "streamAside": "Aside" }`}>
       <div className="page_Links">
         <ul>
-          <Link to="/"> <li onClick={ () => setActiveLink("/")} className={activeLink === "/" ? "active_list_item": ""}><AiFillHome/>Live</li></Link>
+        <Link to="/"><li onClick={ () => setActiveLink("/")} className={activeLink === "/" ? "active_list_item": ""}><MdHome/> Home</li></Link>
+          <Link to="/live"> <li onClick={ () => setActiveLink("/live")} className={activeLink === "/live" ? "active_list_item": ""}><GiAerialSignal/>Live</li></Link>
           <Link to="/watch"><li onClick={ () => setActiveLink("/watch")} className={activeLink === "/watch" ? "active_list_item": ""}><MdVideoLibrary/>Watch</li></Link>
-          <Link to="/discover"><li onClick={ () => setActiveLink("/discover")} className={activeLink === "/discover" ? "active_list_item": ""}><GiCompass/> Discover</li></Link>
         </ul>
       </div>
       <div className="Library_content">
@@ -59,7 +55,6 @@ function Aside(props){
           <Link to="/saved"><li onClick={ () => setActiveLink("/saved")} className={activeLink == "/saved" ? "active_list_item": ""}><MdBookmark/>Saved</li></Link>
           <Link to="/likes"><li onClick={ () => setActiveLink("/likes")} className={activeLink == "/likes" ? "active_list_item": ""}><AiFillLike/> Likes</li></Link>
           <Link to="/history"><li onClick={ () => setActiveLink("/history")} className={activeLink == "/history" ? "active_list_item": ""}><BsListStars/>History</li></Link>
-          <Link to="/settings"><li onClick={ () => setActiveLink("/settings")} className={activeLink == "/Settings" ? "active_list_item": ""}><BsGear/>Settings</li></Link>
         </ul>
       </div>
       
@@ -67,21 +62,3 @@ function Aside(props){
   )
 }
 export default Aside
-
-{/* <span className="aside_section_title">Channels</span>
-      <div className="channels_container">
-          <ChannelStrip/>
-          <ChannelStrip/>
-          <ChannelStrip/>
-          <ChannelStrip/>
-          <ChannelStrip/>
-          <ChannelStrip/>
-          <ChannelStrip/>
-          <ChannelStrip/>
-          <ChannelStrip/>
-      </div> */}
-
-      // <div className="aside_footer">
-      // <button><AiOutlinePoweroff/></button>
-      // <button><IoIosCog/></button>
-      // </div>

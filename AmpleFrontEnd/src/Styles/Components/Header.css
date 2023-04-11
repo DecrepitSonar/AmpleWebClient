@@ -1,7 +1,7 @@
 .Header{
   width: auto;
   border-bottom: 1px solid #333;
-  padding: 10px 20px;
+  padding: 10px 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,19 +11,41 @@
 }
 
 .Header button{
-  padding: 10px;
-  background: inherit;
-  border: 1px;
+  /* padding: 10px; */
+  /* background: inherit; */
   transition: all .2s ease-in-out;
 }
 .login-button-header{
-  border: 1px solid red;
+  background-color:  var(--color-tertiary);
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #000
 }
 .logoContainer{
   display: flex;
   align-items: center;
 }
+.header_button{
+  border: 0;
+}
+
+.logoContainer button{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 1.1em;
+}
+.logoContainer span{
+  font-size: 1em;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.logoContainer svg{
+  margin-right: 10px;
+}
 .Header  svg{
+  
   font-size: 1.5em;
 }
 
@@ -48,14 +70,11 @@
 .header_right_Items{
   display: flex;
   align-items: center;
-  /* border: 1px solid red; */
 }
 .user_Avi_container{
   display: flex;
   padding: 0 10px;
   align-items: center;
-  border-left: 1px solid #eee;
-  /* margin-right: 20px; */
 }
 .Avi{
   height: 30px;
